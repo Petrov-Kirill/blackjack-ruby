@@ -2,20 +2,16 @@ module AntonMatiunin
   class Sub_strings
     attr_reader :input_string, :dictionary
 
-    def initialize(input_string: '', dictionary: ["below", "down", "go", "going", "horn", "how", "howdy", "it", "i", "low", "own", "part", "partner", "sit"])
-      @input_string = input_string ? input_string.to_s : input_string = ""
-      @dictionary = dictionary ? dictionary.to_a : dictionary = []
+    def initialize(input_string: 'below', dictionary: [])
+      @input_string = input_string.to_s.downcase
+      @dictionary = dictionary.to_a
     end
 
-    def substrings
-      array_string = input_string.split
-      count_hash = Hash.new(0)
-      array_string.each do |word_from_string|
-        dictionary.each do |dictionary_word|
-          word_from_string.include?(dictionary_word) ? count_hash[dictionary_word] += 1 : nil
-        end
+    def counter
+       dictionary.each_with_object(hash=Hash.new(0)) do |word,hash|
+        hash[word] += input_string.scan(word).count
       end
-      count_hash
+      hash.delete_if { |k, v| v == 0 }
     end
   end
 end

@@ -1,21 +1,20 @@
 module AntonMatiunin
   class BubbleSort
-    attr_reader :array
+    attr_reader :input_array
 
-    def initialize(array: [3, 1, 2])
-      @array = array ? array.to_a : array = []
+    def initialize(input_array: [])
+      @input_array = input_array.to_a
     end
 
     def bubble_sort
-      (array.length.to_i ** 2).times do
-        array.each_index do |i|
-          if array[i + 1] != nil and array[i] > array[i + 1]
-            array[i], array[i + 1] = array[i + 1], array[i]
+      (input_array.length.to_i).times do
+        input_array.each_index do |i|
+          if i < input_array.length - 1 && input_array[i] > input_array[i + 1]
+            input_array[i], input_array[i + 1] = input_array[i + 1], input_array[i]
           end
         end
       end
-      array
+      input_array
     end
   end
-
 end

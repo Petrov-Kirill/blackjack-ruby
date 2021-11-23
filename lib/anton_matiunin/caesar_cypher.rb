@@ -4,11 +4,12 @@ module AntonMatiunin
 
     def initialize(input_string: '', shift: 0)
       @input_string = input_string
-      @shift = shift ? shift.to_i : shift = 0
+      @shift = shift.to_i
     end
 
     def encrypt
-      input_string.tr(alp=("a".."z").to_a.join, sh = ("a".."z").to_a.rotate(shift).join).tr(alp.upcase, sh.upcase)
+      input_string.tr([*'a'..'z', *'A'..'Z'].to_a.join, [*'a'..'z', *'A'..'Z'].to_a.rotate(shift).join)
     end
   end
+
 end
