@@ -6,6 +6,7 @@ RSpec.describe AntonMatiunin::StockPicker do
   describe '#stock_picker' do
     context 'if array is standard' do
       let(:input_array) { [17, 3, 6, 9, 15, 8, 6, 1, 10] }
+
       it 'returns profit days' do
         expect(subject.pick).to eq([1, 4])
       end
@@ -13,6 +14,7 @@ RSpec.describe AntonMatiunin::StockPicker do
 
     context 'if array is nil' do
       let(:input_array) { nil }
+
       it 'returns empty array' do
         expect(subject.pick).to eq([])
       end
@@ -20,6 +22,7 @@ RSpec.describe AntonMatiunin::StockPicker do
 
     context 'if no profit' do
       let(:input_array) { [8, 8, 8, 7] }
+
       it 'returns empty array' do
         expect(subject.pick).to eq([])
       end

@@ -7,14 +7,16 @@ RSpec.describe AntonMatiunin::CaesarCypher do
     context 'if shift is not specified' do
       let(:input_string) { 'Hello!' }
       let(:shift) { nil }
+
       it 'returns initial input_string' do
         expect(subject.encrypt).to eq("Hello!")
       end
     end
 
-    context 'if shift is 3' do
+    context 'with correct shift value' do
       let(:input_string) { 'Hello World!' }
       let(:shift) { 3 }
+
       it 'returns encrypted string' do
         expect(subject.encrypt).to eq("Khoor Zruog!")
       end
@@ -23,6 +25,7 @@ RSpec.describe AntonMatiunin::CaesarCypher do
     context 'if shift is string' do
       let(:input_string) { 'Hello World!' }
       let(:shift) { 'string' }
+
       it 'returns initial input_string' do
         expect(subject.encrypt).to eq("Hello World!")
       end

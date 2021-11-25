@@ -8,8 +8,8 @@ module AntonMatiunin
 
     def bubble_sort
       (input_array.length.to_i).times do
-        input_array.each_index do |i|
-          if i < input_array.length - 1 && input_array[i] > input_array[i + 1]
+        (0..input_array.length - 2).each do |i|
+          if input_array[i] > input_array[i + 1]
             input_array[i], input_array[i + 1] = input_array[i + 1], input_array[i]
           end
         end

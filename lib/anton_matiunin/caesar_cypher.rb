@@ -11,5 +11,4 @@ module AntonMatiunin
       input_string.tr([*'a'..'z', *'A'..'Z'].to_a.join, [*'a'..'z', *'A'..'Z'].to_a.rotate(shift).join)
     end
   end
-
 end
