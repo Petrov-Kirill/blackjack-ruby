@@ -14,6 +14,7 @@ module AntonMatiunin
           end
         end
       end
+
       input_array
     end
   end
