@@ -9,7 +9,7 @@ RSpec.describe AntonMatiunin::CaesarCypher do
       let(:shift) { nil }
 
       it 'returns initial input_string' do
-        expect(subject.encrypt).to eq("Hello!")
+        expect(subject.encrypt).to eq('Hello!')
       end
     end
 
@@ -18,7 +18,7 @@ RSpec.describe AntonMatiunin::CaesarCypher do
       let(:shift) { 3 }
 
       it 'returns encrypted string' do
-        expect(subject.encrypt).to eq("Khoor Zruog!")
+        expect(subject.encrypt).to eq('Khoor Zruog!')
       end
     end
 
@@ -27,7 +27,7 @@ RSpec.describe AntonMatiunin::CaesarCypher do
       let(:shift) { 'string' }
 
       it 'returns initial input_string' do
-        expect(subject.encrypt).to eq("Hello World!")
+        expect(subject.encrypt).to eq('Hello World!')
       end
     end
   end
