@@ -2,18 +2,16 @@ module AntonMatiunin
   class SubStrings
     attr_reader :input_string, :dictionary, :hash
 
-    def initialize(input_string: '', dictionary: [], hash: {})
+    def initialize(input_string: '', dictionary: [])
       @input_string = input_string.to_s.downcase
       @dictionary = dictionary.to_a
-      @hash = Hash.new(0)
     end
 
     def counter
-      dictionary.each do |word|
-        hash[word] += input_string.scan(word).count if input_string.scan(word).count.positive?
+      dictionary.each_with_object({}) do |word, hash|
+        founded_words = input_string.scan(word).count
+        hash[word] = founded_words if founded_words.positive?
       end
-
-      hash
     end
   end
 end

@@ -7,11 +7,13 @@ module AntonMatiunin
     end
 
     def bubble_sort
-      (input_array.length.to_i).times do
+      a=input_array.length-1
+      input_array[0..a].each do
         (0..input_array.length - 2).each do |i|
           if input_array[i] > input_array[i + 1]
             input_array[i], input_array[i + 1] = input_array[i + 1], input_array[i]
           end
+          a-=1
         end
       end
 

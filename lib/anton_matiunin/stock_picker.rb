@@ -1,18 +1,19 @@
 module AntonMatiunin
   class StockPicker
-    attr_reader :input_array, :best_days
+    attr_reader :input_array
 
-    def initialize(input_array: [], time_machine: [])
+    def initialize(input_array: [])
       @input_array = input_array.to_a
-      @best_days = []
     end
 
     def pick
+      best_days = []
       max_profit = 0
       input_array.each_with_index do |buy_price, buy_day|
         input_array.each_with_index do |sell_price, sell_day|
-          if sell_day > buy_day && sell_price - buy_price > max_profit
-            max_profit = sell_price - buy_price
+          current_profit = sell_price - buy_price
+          if sell_day > buy_day && current_profit > max_profit
+            max_profit = current_profit
             best_days[0], best_days[1] = buy_day, sell_day
           end
         end
