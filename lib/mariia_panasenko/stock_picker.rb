@@ -11,7 +11,7 @@ module MariiaPanasenko
 
       profit = 0
       input_array.each_with_object([]) do |buy_day, best_profit|
-        input_array[(buy_day + 1)..-1].each do |sell_day|
+        input_array[input_array.index(buy_day)..-1].each do |sell_day|
           current_profit = sell_day - buy_day
           next if profit > current_profit
 
