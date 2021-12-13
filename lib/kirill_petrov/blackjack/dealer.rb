@@ -3,9 +3,8 @@ module BlackJack
     MAX_CARDS_VALUE = 17
     attr_accessor :hand
 
-    def initialize
-      super('Dealer')
-      @hand = []
+    def initialize(name, deck)
+      super
     end
 
     def pick_a_card_if_less_than_17

@@ -1,10 +1,10 @@
 module BlackJack
   class Player
-    attr_accessor :money, :hand, :name
+    attr_accessor :money, :hand, :name, :deck
 
-    def initialize(name)
+    def initialize(name, deck)
       @name = name
-      @deck = Deck.new(8)
+      @deck = deck
       @money = 100
       @hand = []
     end

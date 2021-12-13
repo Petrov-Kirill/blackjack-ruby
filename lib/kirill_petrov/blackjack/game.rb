@@ -3,12 +3,13 @@ module BlackJack
     def initialize
       puts 'How many players playing?'
       num_of_players = gets.chomp.to_i
-      @players = create_players(num_of_players)
-      @dealer = Dealer.new
       @deck = Deck.new(8)
+      @players = create_players(num_of_players)
+      @dealer = Dealer.new('Dealer', @deck)
     end
 
     def play
+      @deck.deck.shuffle!
       until @deck.deck.length == 0
         puts "Let's play BlackJack, shall we?\n\n"
         players_pick_cards
@@ -90,7 +91,7 @@ module BlackJack
     def create_players(num_of_players)
       players = []
       num_of_players.times do |i|
-        players << Player.new("Player#{i + 1}")
+        players << Player.new("Player#{i + 1}", @deck)
       end
       players
     end

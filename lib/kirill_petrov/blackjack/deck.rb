@@ -25,11 +25,12 @@ module BlackJack
       num_of_decks.times do
         suits.each do |suit|
           types.each do |type|
-            deck << Card.new(suit, type)
+            @deck << Card.new(suit, type)
           end
         end
       end
-      @deck.shuffle!
+
+      @deck
     end
 
     def deck_ends
